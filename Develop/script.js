@@ -1,17 +1,17 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+ 
 function randomInt(min, max) {
   if (!max) {
-    max - min
-    min - 0
+    max = min
+    min = 0
   }
   var rand = Math.random()
-  return Math.floor(min*(1 - rand) + rand*max)
+  return Math.floor(min*(1 - rand) + rand * max)
 }
 
 function getRandomItem(list) {
-  return list[randomInt(0, list.length - 1)]
+  return list[randomInt(0, list.length)]
 }
 
 function generatePassword() {
@@ -26,7 +26,7 @@ function generatePassword() {
     window.alert("Not a valid number.")
     return
   }
-  console.log(typeof passwordLength)
+  console.log(typeof passwordLength) //confirms password length string value was turned into a number value
 
   if (passwordLength < 8 || passwordLength > 128) {
     window.alert("Password must be between 8 and 128 characters.")
@@ -48,13 +48,9 @@ function generatePassword() {
   var numbers = ['0','1','2','3','4','5','6','7','8','9'];
   var symbols = ['~','!','@','$','*','#','%','^','&','-','+','='];
   var lowercase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  var uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+  var uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
   var userBasket = []
-
-  for (var i = 0; i < lowercase.length; i++) {
-    uppercase[i] = lowercase[i].toUpperCase()
-  }
 
   if (useNumbers === true) {
     userBasket.push(numbers)
@@ -76,20 +72,19 @@ function generatePassword() {
   var generatedPassword = ""
 
   for (var i = 0; i < passwordLength; i++) {
-    var randomList = getRandomItem(userBasket)
-    var randomChar = getRandomItem(randomList)
-    console.log(randomChar)
+    var randomList = getRandomItem(userBasket);
+    var randomChar = getRandomItem(randomList);
+    generatedPassword += randomChar
   }
+
+  console.log(generatedPassword)
 
 }
   
   // 2 - validate input matches
-
   // 3 - generate pssword based on criteria
-
   // 4 - display password on page text box
   // return "generated password will go here"; // possibly make another function to display password? Though this seems to work for now
-
 
 // Write password to the #password input
 function writePassword() {
