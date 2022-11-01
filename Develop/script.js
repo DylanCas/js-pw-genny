@@ -51,7 +51,8 @@ function generatePassword() {
   var uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
   var userBasket = []
-
+  
+  // if window.confirms are accepted, will add the relevant strings to the userbasket
   if (useNumbers === true) {
     userBasket.push(numbers)
   }
@@ -69,6 +70,12 @@ function generatePassword() {
   }
   console.log(userBasket)
 
+  if (userBasket.length === 0) {
+    userBasket.push(lowercase)
+    userBasket.push(numbers)
+    userBasket.push(symbols)
+  }
+
   var generatedPassword = ""
 
   for (var i = 0; i < passwordLength; i++) {
@@ -79,6 +86,7 @@ function generatePassword() {
 
   console.log(generatedPassword)
 
+  return generatedPassword
 }
   
   // 2 - validate input matches
@@ -92,7 +100,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
