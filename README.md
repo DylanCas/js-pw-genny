@@ -12,7 +12,7 @@
 
 ## Link and Screenshot
 
-- Link: 
+- Link: https://dylancas.github.io/js-pw-genny/
 
 ![screenshot](./Develop/assets/completed.png)
 
